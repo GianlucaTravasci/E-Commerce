@@ -10,11 +10,9 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 currentUser: action.payload
 
             }
-            break;
     
         default:
             return state;
-            break;
     }
 }
 
