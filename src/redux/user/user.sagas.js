@@ -22,9 +22,13 @@ export function* onGoogleSignInStart() {
 }
 
 //SIGNIN WITH EMAIL AND PASSWORD
-export function* signInWithEmail({ payload: { email, password }}) {
+export function* signInWithEmail({ payload: { email, password } }) {
     try {
-        const { user } = yield auth.signInWithEmailAndPassword(email, password)
+        console.log('sagas', password)
+        //const { user } = yield auth.signInWithEmailAndPassword(email, password);
+        //const userRef = yield call(createUserProfileDocument, user);
+        //const userSnapshot = yield userRef.get();
+        //yield put(emailSignInSuccess({id: userSnapshot.id, ...userSnapshot.data()}))
     } catch (error) {
         yield put(emailSignInFailure(error));
     }
@@ -36,5 +40,5 @@ export function* onEmailSignInStart() {
 
 //ALL SAGAS FOR USER AUTHENTICATION
 export function* userSagas() {
-    yield all([call(onGoogleSignInStart)])
+    yield all([call(onGoogleSignInStart), call(onEmailSignInStart)])
 }
