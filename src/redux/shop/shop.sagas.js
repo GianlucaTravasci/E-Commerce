@@ -1,4 +1,4 @@
-import { takeLatest, call, put } from 'redux-saga/effects'  
+import { takeLatest, call, put, all } from 'redux-saga/effects'  
 //take every action of a specific type, 
 //call is the effect inside the generator function that invocs the methods (i use this method instead of convertCollectionsSnapshoptToMap(snapshot) to yield the function if it take to long when he try to access data in database) 
 //put is the effect for creating fucntions is === dispatch
@@ -21,4 +21,8 @@ export function* fetchCollectionsAsync() {
 
 export function* fetchCollectionsStart() {
     yield takeLatest(ShopActionTypes.FETCH_COLLECTION_START, fetchCollectionsAsync)
+}
+
+export function* shopSagas() {
+    yield all([call(fetchCollectionsStart)]);
 }
