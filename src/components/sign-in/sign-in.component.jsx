@@ -18,7 +18,6 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    const { email, password } = this.state;
     emailSignInStart(email, password);
   };
 
@@ -50,7 +49,7 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
         <ButtonsBarContainer>
           <CustomButton type='submit'> Sign in </CustomButton>
           <CustomButton type='button' onClick={googleSignInStart} isGoogleSignin>
-            Sign in w\Google 
+            Google Sign In 
           </CustomButton>
         </ButtonsBarContainer>
       </form>
