@@ -6,7 +6,7 @@ const OptionContainerStyles = css`
     cursor: pointer;
 `;
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.header`
     height: 70px;
     width: 100%;
     display: flex;
