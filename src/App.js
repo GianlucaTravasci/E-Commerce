@@ -16,7 +16,7 @@ const ShopPage = lazy(() => import('./pages/shop/shop.component'));
 const SignInAndSignUpPage = lazy(() => import('./pages/signin-and-signup/signin-and-signup'));
 const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
 
-const App = ({checkUserSession}) => {
+const App = ({checkUserSession, currentUser}) => {
   useEffect(() => {
     checkUserSession()
   }, [checkUserSession]) 
@@ -32,7 +32,7 @@ const App = ({checkUserSession}) => {
               exact
               path='/signin'
               render={() =>
-                this.props.currentUser ? (
+                currentUser ? (
                   <Redirect to='/' />
                 ) : (
                   <SignInAndSignUpPage />
