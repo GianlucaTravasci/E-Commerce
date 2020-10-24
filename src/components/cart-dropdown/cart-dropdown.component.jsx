@@ -5,7 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import { withRouter } from 'react-router-dom';
 
 //Components import
-import CartItem from '../cart-item/cart-item.component'
+import MemoizedCartItem from '../cart-item/cart-item.component'
 
 //Redux import 
 import { toggleCartHidden } from '../../redux/cart/cart.action'
@@ -21,7 +21,7 @@ const CartDropdown = ({cartItems, history, dispatch}) => {
                 {
                     cartItems.length ? 
                         (cartItems.map(cartItem => (
-                            <CartItem key={cartItem.id} item={cartItem}/>
+                            <MemoizedCartItem key={cartItem.id} item={cartItem}/>
                         )))
                     :
                         (<EmptyMessage>Your cart is empty</EmptyMessage>)

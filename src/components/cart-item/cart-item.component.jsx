@@ -2,7 +2,7 @@ import React from 'react';
 
 import { CartItemContainer, CartItemImage, CartItemDetails, CartItemName } from './cart-item.styles';
 
-const CartItem = ({item: {imageUrl, price, name, quantity}}) => {
+const MemoizedCartItem = React.memo(function CartItem({item: {imageUrl, price, name, quantity}}) {
     return (
         <CartItemContainer>
             <CartItemImage src={imageUrl} alt={name}/>
@@ -12,6 +12,7 @@ const CartItem = ({item: {imageUrl, price, name, quantity}}) => {
             </CartItemDetails>
         </CartItemContainer>
     )
-}
+})
 
-export default CartItem;
+export default MemoizedCartItem; 
+//memoized the render of the array becouse after an "ADD_ITEM" action, the cart dropdown is rerendered with the new item so i want to not rerender every time.
