@@ -25,7 +25,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && gzipper ./build",
+    "build": "react-scripts build && gzipper compress ./build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
